@@ -20,6 +20,25 @@ document.addEventListener("DOMContentLoaded", function() {
 
     gsap.ticker.lagSmoothing( 0 );
 
+    // Hide/show scroll indicator based on scroll position
+    const scrollIndicator = document.querySelector(".scroll-indicator");
+    
+    window.addEventListener("scroll", () => {
+        if (window.scrollY > 50) {
+            gsap.to(scrollIndicator, {
+                opacity: 0,
+                duration: 0.5,
+                ease: "power2.out"
+            });
+        } else {
+            gsap.to(scrollIndicator, {
+                opacity: 0.8,
+                duration: 0.5,
+                ease: "power2.out"
+            });
+        }
+    });
+
     // GSAP ANIMATIONS HERE
     const spotlightImages = document.querySelector(".spotlight-images");
     const maskContainer = document.querySelector(".mask-container");
